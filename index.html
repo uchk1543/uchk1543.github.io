@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>uch | 포트폴리오</title>
+<meta name="description" content="부산대학교 정보컴퓨터공학부 uch의 포트폴리오 — AI로 현실의 문제를 풀어 보는 학부생">
+<meta property="og:title" content="uch | 포트폴리오">
+<meta property="og:description" content="AI로 현실의 문제를 풀어 보는 학부생입니다">
+<!--
+  디자인 출처
+  - 레이아웃과 스타일은 GitHub Pages "Minimal" 테마(제작: orderedlist)를 참고해 직접 다시 작성했습니다.
+    https://github.com/orderedlist/minimal
+    https://github.com/pages-themes/minimal
+  - 소개 · 프로젝트 · 경험 내용과 페이지 구성은 모두 본인이 작성했습니다.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* GitHub Pages "Minimal" 테마(orderedlist) 스타일 참고: 왼쪽 고정 사이드바 + 오른쪽 본문 */
+:root{--ink:#222;--text:#595959;--mute:#8a8a8a;--line:#e5e5e5;--link:#267cb9;--bg:#fff;--soft:#f8f8f8}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{word-break:keep-all;margin:0;background:var(--bg);color:var(--text);font:15px/1.75 "Noto Sans KR",-apple-system,"Helvetica Neue",Helvetica,Arial,sans-serif;padding:50px}
+a{color:var(--link);text-decoration:none}
+a:hover,a:focus-visible{text-decoration:underline;color:#069}
+a:focus-visible{outline:2px solid var(--link);outline-offset:2px}
+h1,h2,h3,h4{color:var(--ink);line-height:1.3;margin:0 0 10px;font-weight:700}
+h1{font-size:28px}
+h2{font-size:22px;margin-top:44px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+h3{font-size:18px;margin-top:30px}
+h4{font-size:15px;margin:18px 0 4px;color:var(--ink)}
+p,ul,ol{margin:0 0 14px}
+ul{padding-left:20px}li{margin:3px 0}
+strong{color:var(--ink);font-weight:700}
+em{color:var(--mute);font-style:normal;font-size:14px}
+code{background:var(--soft);border:1px solid var(--line);border-radius:3px;padding:0 5px;font:13px/1.6 "SFMono-Regular",Menlo,Consolas,monospace;color:#444}
+.wrapper{max-width:960px;margin:0 auto}
+
+/* 사이드바 */
+header{width:270px;float:left;position:fixed}
+.avatar{width:120px;height:120px;border-radius:50%;background:#2b2f36;color:#fff;display:flex;align-items:center;justify-content:center;font:700 40px/1 "Noto Sans KR",sans-serif;margin:0 0 20px;letter-spacing:-1px}
+.avatar img{width:100%;height:100%;border-radius:50%;object-fit:cover}
+header h1{font-size:28px;margin-bottom:6px}
+header p.tag{margin:0 0 20px}
+header .meta{list-style:none;padding:0;margin:0 0 22px;font-size:14px}
+header .meta li{margin:4px 0}
+.print-only{display:none}
+.side-links{list-style:none;padding:0;margin:0;width:270px;display:grid;gap:6px}
+.side-links li{margin:0}
+.side-links a{display:flex;align-items:center;gap:12px;padding:8px 10px;margin:0 -10px;border-radius:8px;color:var(--ink);min-height:44px}
+.side-links a:hover{background:var(--soft);text-decoration:none}
+.side-links .ico{flex:none;width:34px;height:34px;border-radius:8px;background:#eef4fa;display:flex;align-items:center;justify-content:center}
+.side-links svg{width:18px;height:18px;fill:none;stroke:var(--link);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.side-links b{display:block;font-size:14px;line-height:1.3}
+.side-links small{display:block;font-size:12px;color:var(--mute);line-height:1.3}
+.side-links a:hover small{color:var(--link)}
+.toc{list-style:none;padding:0;margin:26px 0 0;font-size:14px}
+.toc a{color:var(--mute)}.toc a:hover{color:var(--link)}
+
+/* 본문 */
+section{width:620px;float:right;padding-bottom:50px}
+.skills{font-size:16px;font-weight:500;margin-bottom:24px}
+.badge{display:inline-block;background:#fff4d6;color:#8a5a00;border:1px solid #f0d58a;font-size:13px;font-weight:700;padding:1px 9px;border-radius:12px;margin-left:6px;vertical-align:2px}
+.proj-meta{color:var(--mute);font-size:14px;margin:-4px 0 12px}
+.links{font-size:14px}
+.links a+a::before{content:"·";color:var(--mute);margin:0 8px;display:inline-block}
+.stack code{white-space:nowrap;display:inline-block;margin:2px 0}
+blockquote{border-left:3px solid var(--line);margin:0 0 14px;padding:2px 0 2px 14px}
+.project{border:1px solid var(--line);border-radius:8px;padding:4px 24px 10px;margin:22px 0 28px;background:#fff}
+.project>h3{margin-top:20px;padding-bottom:10px;border-bottom:1px dashed var(--line);font-size:19px}
+.project>h3+.proj-meta{margin-top:10px}
+.rules{border-collapse:collapse;width:100%;font-size:14px;margin:0 0 14px}
+.rules th,.rules td{border-top:1px solid var(--line);padding:7px 10px 7px 0;vertical-align:top;text-align:left}
+.rules tr:last-child th,.rules tr:last-child td{border-bottom:1px solid var(--line)}
+.rules th{color:var(--ink);font-weight:700;white-space:nowrap;width:6.5em}
+.rules ul{margin:0;padding-left:16px}.rules li{margin:1px 0}.rules .stack code{margin:1px 0}
+@media (max-width:600px){.rules th{white-space:normal;width:7em}}
+.job{margin-bottom:18px}
+.job .t{display:flex;flex-wrap:wrap;justify-content:space-between;gap:0 12px}
+.credit{margin-top:40px;padding-top:14px;border-top:1px solid var(--line);font-size:13px;color:var(--mute)}
+.credit p{margin:0 0 4px}
+footer{width:270px;float:left;position:fixed;bottom:50px;font-size:12px;color:var(--mute)}
+footer p{margin:0}
+
+@media (max-width:960px){
+  .wrapper{width:auto;margin:0}
+  header,section,footer{float:none;position:static;width:auto}
+  header{margin-bottom:10px}
+  section{border-top:1px solid var(--line);padding:20px 0 0;margin-bottom:30px}
+  .toc{display:none}
+}
+@media (max-width:600px){body{padding:22px 16px}.project{padding:2px 16px 8px}.side-links{width:100%}h2{margin-top:36px}}
+@page{size:A4 portrait;margin:14mm 15mm}
+@media print{
+  body{padding:0;font-size:10.5pt;line-height:1.48;color:#333}
+  .wrapper{max-width:none}
+  header,section,footer{position:static;float:none;width:auto}
+  header{display:grid;grid-template-columns:auto 1fr;column-gap:16px;align-items:center;border-bottom:1.5px solid #222;padding-bottom:10px;margin-bottom:6px}
+  .avatar{width:64px;height:64px;font-size:20px;margin:0;grid-row:span 3}
+  header h1{font-size:20pt;margin:0}header p.tag{margin:0}
+  header .meta{margin:0;display:flex;gap:14px}
+  .side-links,.toc,footer,.credit{display:none}.print-only{display:list-item}
+  section{padding:0}
+  h1{font-size:15pt}h2{font-size:13pt;margin-top:16px}h3{font-size:12pt}h4{font-size:10.5pt;margin:8px 0 2px}
+  .project{break-inside:auto;padding:0 14px 4px;margin:8px 0}.project>h3{margin-top:10px;padding-bottom:6px}.project>h3+.proj-meta{margin-top:6px}
+  h2,h3,h4{break-after:avoid}p,ul{margin-bottom:7px}.rules{margin-bottom:7px}.rules th,.rules td{padding:4px 10px 4px 0}h2{margin-top:12px}.project ul,.project p,.rules,.proj-meta{break-inside:avoid}
+  .job{break-inside:avoid}
+  a{color:#1a5d96}
+  .links a[href^="http"]::after{content:" (" attr(href) ")";color:#777;font-size:9pt}
+  .badge{border-color:#d9b75c}
+}
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+<header>
+  <!-- 사진을 쓰려면: <div class="avatar"><img src="profile.jpg" alt="uch 프로필 사진"></div> -->
+  <div class="avatar" aria-hidden="true">uch</div>
+  <h1><a href="./" style="color:inherit">uch</a></h1>
+  <p class="tag">AI로 현실의 문제를 풀어 보는 학부생입니다.</p>
+  <ul class="meta">
+    <li>부산대학교 정보컴퓨터공학부</li>
+    <li class="print-only">github.com/uchk1543</li>
+  </ul>
+  <ul class="side-links">
+    <li><a href="resume.pdf" download>
+      <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 2h8l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/><path d="M14 2v5h5"/><path d="M12 11v6m-3-3 3 3 3-3"/></svg></span>
+      <span><b>이력서</b><small>PDF 내려받기</small></span></a></li>
+    <li><a href="https://github.com/uchk1543">
+      <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m8 7-5 5 5 5"/><path d="m16 7 5 5-5 5"/><path d="m14 4-4 16"/></svg></span>
+      <span><b>GitHub</b><small>github.com/uchk1543</small></span></a></li>
+  </ul>
+  <ul class="toc" aria-label="목차">
+    <li><a href="#about">소개</a></li>
+    <li><a href="#projects">해커톤</a></li>
+    <li><a href="#work">현업 프로젝트</a></li>
+    <li><a href="#experience">인턴 경험</a></li>
+    <li><a href="#education">학력</a></li>
+  </ul>
+</header>
+
+<section>
+  <h1 id="about">AI로 현실의 문제를 풀어 보는 학부생</h1>
+
+  <p>부산대학교 정보컴퓨터공학부에 다니고 있습니다. AI를 도구로 활용해 여러 기술을 직접 다뤄 보며, 눈앞에 주어진 대회와 과제를 하나씩 끝까지 풀어 가고 있습니다.</p>
+
+  <p>최근 공개된 초파리 전뇌 커넥톰과, 이를 가상 환경에서 시뮬레이션한 사례들을 보고 이 분야에 흥미를 느꼈습니다. 디지털 트윈과 관련된 공부를 해 보고 싶다고 생각하고 있습니다.</p>
+
+  <p>아래는 지금까지 대회와 과제로 해 온 일들입니다.</p>
+
+  <h2 id="projects">해커톤</h2>
+
+  <article class="project">
+  <h3>물류 문서 자동화 Agent</h3>
+  <p class="proj-meta">2026.11 · PNU × AWS AI 마에스트로 해커톤 · 5인 팀 · <strong>PM · 배포</strong></p>
+  <p class="links"><a href="https://github.com/uchk1543/aws.ai.maestro.6">소스 코드</a></p>
+  <table class="rules">
+    <tr><th>결과</th><td><span class="badge" style="margin:0">🏆 최우수상 (2등상)</span></td></tr>
+    <tr><th>문제</th><td>포워더가 B/L · 송장 · 포장명세서 · 원산지증명서를 눈으로 대조하고 신고서를 손으로 채우는 일을, 서류 판독 → 대조 → HS 코드 추천 → 신고서 초안까지 자동화</td></tr>
+    <tr><th>내가 한 일</th><td><ul>
+      <li>5명의 역할을 판독 · 검증 · 화면 · 서버로 나누고 이슈로 작업 관리</li>
+      <li>팀원들의 AI 코딩 도구가 공통 규칙 파일을 읽고 담당 폴더만 고치도록 설정</li>
+      <li>main 직접 push를 막고 PR + CI 통과 후에만 병합</li>
+      <li>AWS 배포 전담 (화면 S3 · CloudFront, API API Gateway · Lambda)</li>
+    </ul></td></tr>
+    <tr><th>돌아보며</th><td>HS 코드 추천이 키워드 검색으로 후보를 좁히는 방식이라 품명 표현이 다르면 놓치는 경우가 있었습니다. 품목 설명과 과거 분류 사례를 의미 기반으로 찾는 RAG로 정교화했으면 좋았을 것 같습니다.</td></tr>
+    <tr><th>사용한 기술</th><td class="stack"><code>Python</code> <code>AWS Lambda</code> <code>API Gateway</code> <code>S3</code> <code>CloudFront</code> <code>GitHub</code></td></tr>
+  </table>
+  </article>
+
+  <article class="project">
+  <h3>예측의 스케일 (Scales of Prediction)</h3>
+  <p class="proj-meta">2026.08 · 기상청 기상 · 기후 해커톤 · 2인 팀 · <strong>PM · 기획</strong></p>
+  <p class="links"><a href="https://weather-uch-6szg.vercel.app/">라이브 데모</a><a href="https://github.com/uchk1543/weatherUCH">소스 코드</a></p>
+  <table class="rules">
+    <tr><th>결과</th><td>본선 진출 · 수상하지 못함</td></tr>
+    <tr><th>문제</th><td>"내일 날씨"와 "100년 뒤 기후"는 불확실성의 성격이 다르다는 것을, 며칠에서 수만 년까지 시간 규모를 넓혀 가며 직접 예측해 보고 실제 관측과 비교하는 정적 웹 콘텐츠로 전달</td></tr>
+    <tr><th>내가 한 일</th><td><ul>
+      <li>코드는 AI 코딩 도구가 작성하고, 저는 주제와 8개 화면의 흐름을 정하는 기획과 결과 검토를 맡음</li>
+      <li>기상청 실측과 근사값을 화면에서 구분해 표시하도록 방향 결정</li>
+      <li>Vercel 배포</li>
+    </ul></td></tr>
+    <tr><th>돌아보며</th><td>교육용 콘텐츠를 만드는 것이 대회의 목표였기 때문에 기획이 가장 중요했습니다. 그런데 퀴즈 · 40년 추세선 · 벚꽃 개화 · 미래 시나리오 · 궤도 시뮬레이션처럼 겉으로 보이는 임팩트를 쌓는 데 집중하다 보니, 정작 사용자가 무엇을 배우고 가는지에 대한 핀트를 정확히 잡지 못했습니다. 기획과 콘셉트를 먼저 단단히 잡아 두어야 만드는 도중에 길을 잃지 않는다는 것을 배웠습니다.</td></tr>
+    <tr><th>사용한 기술</th><td class="stack"><code>TypeScript</code> <code>three.js</code> <code>Vercel</code></td></tr>
+  </table>
+  </article>
+
+  <h2 id="work">현업 프로젝트</h2>
+
+  <article class="project">
+  <h3>교사용 생성형 AI 수업 지원 플랫폼 구축</h3>
+  <p class="proj-meta">2026 – 진행 중 · 산학실습 · <strong>개발</strong></p>
+  <table class="rules">
+    <tr><th>개요</th><td>교사가 생성형 AI로 만든 수업 도구를 올리고 나누는 교육 플랫폼</td></tr>
+    <tr><th>내가 한 일</th><td><ul>
+      <li>로그인 연동 개발: 플랫폼에 한 번 로그인하면 올라온 수업 도구에도 로그인이 이어지는 구조 (진행 중)</li>
+      <li>개인정보 마스킹 방식 조사: LLM이 개인정보 여부를 판정하고 규칙이 마스킹하는 방식을 찾아 벤치마크로 성능을 측정하고 보고</li>
+      <li>공무원 사용자를 위한 사용설명서 제작</li>
+    </ul></td></tr>
+  </table>
+  </article>
+
+  <article class="project">
+  <h3>OO학교 교육정보시스템 유지보수</h3>
+  <p class="proj-meta">2020.12 – 2021.09 (9개월) · 외주 참여 · <strong>퍼블리싱 · 디버깅</strong></p>
+  <table class="rules">
+    <tr><th>개요</th><td>실제 운영 중인 인트라넷 교육정보시스템을 유지보수하는 공공 SI 프로젝트</td></tr>
+    <tr><th>내가 한 일</th><td><ul>
+      <li>화면 퍼블리싱</li>
+      <li>운영 중 발생한 오류 디버깅</li>
+    </ul></td></tr>
+    <tr><th>사용한 기술</th><td class="stack"><code>전자정부 프레임워크</code> <code>JSP</code> <code>Oracle</code> <code>WebSquare5</code></td></tr>
+  </table>
+  </article>
+
+  <h2 id="experience">인턴 경험</h2>
+
+  <div class="job">
+    <div class="t"><strong>코드코리아 · SI 인턴</strong><em>2026</em></div>
+    <ul>
+      <li>SI 프로젝트 개발 참여</li>
+      <!-- TODO: 시니어가 보는 정보로 채우기 — 프로젝트 도메인(예: OO기관 OO시스템), 맡은 범위(화면/API/배치 등), 기술 스택, 결과물
+      <li>도메인 · 규모: </li>
+      <li>담당: </li>
+      <li>기술: </li>
+      -->
+    </ul>
+  </div>
+
+  <h2 id="education">학력</h2>
+
+  <div class="job">
+    <div class="t"><strong>부산대학교 정보컴퓨터공학부</strong><em>2021.03 입학 · 재학 중</em></div>
+  </div>
+
+  <div class="credit" id="credit">
+    <p><strong>디자인 출처</strong></p>
+    <p>레이아웃과 스타일은 GitHub Pages <a href="https://github.com/pages-themes/minimal">Minimal 테마</a>(제작: <a href="https://github.com/orderedlist/minimal">orderedlist</a>)를 참고해 직접 다시 작성했습니다.</p>
+    <p>소개 · 프로젝트 · 경험 내용과 페이지 구성은 모두 본인이 작성했습니다.</p>
+  </div>
+</section>
+
+<footer>
+  <p>Maintained by <a href="https://github.com/uchk1543">uchk1543</a></p>
+  <p>Hosted on GitHub Pages — Theme based on <a href="https://github.com/orderedlist/minimal">Minimal by orderedlist</a></p>
+</footer>
+
+</div>
+</body>
+</html>
